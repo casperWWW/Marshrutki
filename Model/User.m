@@ -11,7 +11,7 @@
 @implementation User
 
 # pragma mark - User factories
-+(User *)UserWithName:(NSString *)username andPassword:(NSString *)password
++(User *)userWithName:(NSString *)username andPassword:(NSString *)password
 {
     User *user = [[User alloc] init];
     

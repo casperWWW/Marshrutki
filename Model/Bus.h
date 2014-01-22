@@ -10,7 +10,7 @@
 
 @interface Bus : Vehicle
 
-@property (assign) float longitude;
-@property (assign) float latitude;
+@property (assign, nonatomic) float longitude;
+@property (assign, nonatomic) float latitude;
 
 @end

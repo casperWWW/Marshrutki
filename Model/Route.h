@@ -10,6 +10,6 @@
 
 @interface Route : NSObject
 
-@property (strong, nonatomic) NSString *Name;
+@property (strong, nonatomic) NSString *name;
 
 @end

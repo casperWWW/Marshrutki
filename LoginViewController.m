@@ -33,7 +33,7 @@
 - (IBAction)actionLogin:(UIButton *)sender
 {
     // Try to create user object with specified username and password
-    User *user = [User UserWithName:self.txtUsername.text andPassword:self.txtPassword.text];
+    User *user = [User userWithName:self.txtUsername.text andPassword:self.txtPassword.text];
     
     NSLog(@"Login action: username - %@, password - %@", user.username, user.password);
 }
