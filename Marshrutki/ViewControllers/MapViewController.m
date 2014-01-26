@@ -28,7 +28,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view.
+    
+    UIViewController* LoginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
+    [self.navigationController presentViewController:LoginViewController animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning

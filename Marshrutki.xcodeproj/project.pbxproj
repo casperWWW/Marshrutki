@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		C9C7AB6884384EFC8A1A0D0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2648B43D9E4DD9B6F93BF4 /* libPods.a */; };
 		E215102418906D400078FC9B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E215102318906D400078FC9B /* MapViewController.m */; };
-		E2151027189070660078FC9B /* ava.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E2151026189070660078FC9B /* ava.jpg */; };
 		E2477BCD188BED60008372C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2477BCC188BED60008372C3 /* Foundation.framework */; };
 		E2477BCF188BED60008372C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2477BCE188BED60008372C3 /* CoreGraphics.framework */; };
 		E2477BD1188BED60008372C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2477BD0188BED60008372C3 /* UIKit.framework */; };
@@ -45,7 +44,6 @@
 		BE3DDAF54AE643AFA230BC81 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E215102218906D400078FC9B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ViewControllers/MapViewController.h; sourceTree = "<group>"; };
 		E215102318906D400078FC9B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ViewControllers/MapViewController.m; sourceTree = "<group>"; };
-		E2151026189070660078FC9B /* ava.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = ava.jpg; path = Resources/images/ava.jpg; sourceTree = "<group>"; };
 		E2477BC9188BED60008372C3 /* Marshrutki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marshrutki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2477BCC188BED60008372C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E2477BCE188BED60008372C3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,14 +110,6 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E215102518906F900078FC9B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				E2151026189070660078FC9B /* ava.jpg */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-		};
 		E2477BC0188BED60008372C3 = {
 			isa = PBXGroup;
 			children = (
@@ -156,7 +146,6 @@
 		E2477BD2188BED60008372C3 /* Marshrutki */ = {
 			isa = PBXGroup;
 			children = (
-				E215102518906F900078FC9B /* Resources */,
 				E2151021189062870078FC9B /* ViewControllers */,
 				E2477C01188BEDD3008372C3 /* Model */,
 				E2477BDB188BED60008372C3 /* AppDelegate.h */,
@@ -292,7 +281,6 @@
 			files = (
 				E2477BE5188BED60008372C3 /* Images.xcassets in Resources */,
 				E2477BD7188BED60008372C3 /* InfoPlist.strings in Resources */,
-				E2151027189070660078FC9B /* ava.jpg in Resources */,
 				E2B1A1C118956E1C003F802F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -36,6 +36,7 @@
     User *user = [User userWithName:self.txtUsername.text andPassword:self.txtPassword.text];
     
     NSLog(@"Login action: username - %@, password - %@", user.username, user.password);
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 @end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="YHD-8b-bar">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Jz-2e-rpV">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -7,7 +7,7 @@
         <!--Login View Controller - Authorization-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController title="Authorization" id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="398-3e-RPi"/>
                         <viewControllerLayoutGuide type="bottom" id="ViX-3D-ZvS"/>
@@ -36,7 +36,6 @@
                                 </state>
                                 <connections>
                                     <action selector="actionLogin:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="suh-UR-snt"/>
-                                    <segue destination="ezT-Lp-9WE" kind="push" id="odP-N7-d0F"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wRH-8g-WbG">
@@ -62,7 +61,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="tjg-rD-UQy"/>
+                    <navigationItem key="navigationItem" title="Authorization" id="tjg-rD-UQy"/>
                     <connections>
                         <outlet property="txtPassword" destination="x0P-bf-LgZ" id="AEN-lG-Ehy"/>
                         <outlet property="txtUsername" destination="YnW-QF-gVn" id="Uic-Xr-4tA"/>
@@ -70,12 +69,27 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="417" y="82"/>
+            <point key="canvasLocation" x="401" y="-358"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="vTp-jI-Kam">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="6Jz-2e-rpV" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qt6-iS-NFY">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ezT-Lp-9WE" kind="relationship" relationship="rootViewController" id="2Wt-Rl-3Kl"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y1j-oJ-ieC" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-112" y="689"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="RxO-mo-dcA">
             <objects>
-                <viewController title="Map" id="ezT-Lp-9WE" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController id="ezT-Lp-9WE" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pdj-oT-043"/>
                         <viewControllerLayoutGuide type="bottom" id="jGT-eQ-QQ8"/>
@@ -84,7 +98,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ava.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="sSV-nI-imY">
+                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellow-bus-hi" translatesAutoresizingMaskIntoConstraints="NO" id="sSV-nI-imY">
                                 <rect key="frame" x="20" y="80" width="280" height="440"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
@@ -95,7 +109,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4H4-PD-EJ3"/>
+                    <navigationItem key="navigationItem" title="Map" id="4H4-PD-EJ3"/>
                     <connections>
                         <outlet property="mapView" destination="sSV-nI-imY" id="gZm-Hn-g1F"/>
                     </connections>
@@ -107,12 +121,12 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="958" y="763"/>
+            <point key="canvasLocation" x="417" y="689"/>
         </scene>
-        <!--View Controller - Restore password-->
+        <!--Restore password-->
         <scene sceneID="Tv0-ZY-wCP">
             <objects>
-                <viewController title="Restore password" id="wlP-dX-xJn" sceneMemberID="viewController">
+                <viewController id="wlP-dX-xJn" userLabel="Restore password" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="rHq-iz-uL5"/>
                         <viewControllerLayoutGuide type="bottom" id="Q7g-XX-9XX"/>
@@ -137,16 +151,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="5mV-tM-7mj"/>
+                    <navigationItem key="navigationItem" title="Restore password" id="5mV-tM-7mj"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6wX-qG-FUx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="953" y="82"/>
+            <point key="canvasLocation" x="958" y="-90"/>
         </scene>
         <!--View Controller - Registration-->
         <scene sceneID="lBb-dk-43y">
             <objects>
-                <viewController title="Registration" id="s6A-6V-LEI" sceneMemberID="viewController">
+                <viewController id="s6A-6V-LEI" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jqJ-3p-lz4"/>
                         <viewControllerLayoutGuide type="bottom" id="cPO-QG-ziO"/>
@@ -183,7 +197,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wSp-V5-Yfb"/>
+                    <navigationItem key="navigationItem" title="Registration" id="wSp-V5-Yfb"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="REN-am-6vk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -192,7 +206,7 @@
         <!--Navigation Controller-->
         <scene sceneID="xcl-Af-Y1O">
             <objects>
-                <navigationController definesPresentationContext="YES" id="YHD-8b-bar" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="AuthNavigationController" definesPresentationContext="YES" id="YHD-8b-bar" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="0Qu-3E-pAQ">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -202,11 +216,11 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NKw-wf-uQk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="82"/>
+            <point key="canvasLocation" x="-128" y="-358"/>
         </scene>
     </scenes>
     <resources>
-        <image name="ava.jpg" width="604" height="453"/>
+        <image name="yellow-bus-hi" width="300" height="169"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
