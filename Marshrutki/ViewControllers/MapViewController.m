@@ -16,19 +16,11 @@
 
 @implementation MapViewController
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
+    // Show authorization controller if user is not logged in
     UIViewController* LoginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
     [self.navigationController presentViewController:LoginViewController animated:NO completion:nil];
 }

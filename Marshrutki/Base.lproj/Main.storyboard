@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Jz-2e-rpV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="12F45" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="DzQ-u6-tDD">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
@@ -79,17 +79,64 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="ezT-Lp-9WE" kind="relationship" relationship="rootViewController" id="2Wt-Rl-3Kl"/>
+                        <segue destination="ezT-Lp-9WE" kind="relationship" relationship="rootViewController" id="sBu-bE-gp7"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y1j-oJ-ieC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-112" y="689"/>
+            <point key="canvasLocation" x="401" y="1025"/>
+        </scene>
+        <!--My Side Panel Controller-->
+        <scene sceneID="FQn-pK-dHN">
+            <objects>
+                <viewController id="DzQ-u6-tDD" customClass="MySidePanelController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="3Q9-bw-bg9"/>
+                        <viewControllerLayoutGuide type="bottom" id="shR-HQ-6jf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="BF4-eh-fYj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="51B-CK-Uae"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Nt-Z7-F49" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-128" y="1025"/>
+        </scene>
+        <!--Route View Controller-->
+        <scene sceneID="m6J-ja-Sil">
+            <objects>
+                <tableViewController storyboardIdentifier="RouteViewController" id="aTQ-wp-3aM" customClass="RouteViewController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1dw-RQ-jaN">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RouteCell" id="l9i-5L-j2z">
+                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="l9i-5L-j2z" id="P89-Oi-edm">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="aTQ-wp-3aM" id="s5o-4U-PCe"/>
+                            <outlet property="delegate" destination="aTQ-wp-3aM" id="6iC-AI-nBj"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ykl-Ck-KCx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="958" y="665"/>
         </scene>
         <!--Map View Controller - Map-->
         <scene sceneID="RxO-mo-dcA">
             <objects>
-                <viewController id="ezT-Lp-9WE" customClass="MapViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MapViewController" id="ezT-Lp-9WE" customClass="MapViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pdj-oT-043"/>
                         <viewControllerLayoutGuide type="bottom" id="jGT-eQ-QQ8"/>
@@ -99,7 +146,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yellow-bus-hi" translatesAutoresizingMaskIntoConstraints="NO" id="sSV-nI-imY">
-                                <rect key="frame" x="20" y="80" width="280" height="440"/>
+                                <rect key="frame" x="20" y="193" width="280" height="181"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <gestureRecognizers/>
                                 <connections>
@@ -121,7 +168,7 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="417" y="689"/>
+            <point key="canvasLocation" x="961" y="1373"/>
         </scene>
         <!--Restore password-->
         <scene sceneID="Tv0-ZY-wCP">

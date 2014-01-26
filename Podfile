@@ -1,2 +1,4 @@
-pod 'JASidePanels', '~> 1.3.2'
-
+platform :ios, '7.0'
+pod 'JASidePanels'
+pod 'AFNetworking'
+pod 'MBProgressHUD'

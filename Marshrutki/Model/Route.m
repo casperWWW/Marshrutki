@@ -10,4 +10,13 @@
 
 @implementation Route
 
++(Route *)routeWithDictionary:(NSDictionary *)routeDictionary
+{
+    Route* route = [[Route alloc] init];
+    
+    route.name = routeDictionary[@"route_title"];
+    
+    return route;
+}
+
 @end
