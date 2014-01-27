@@ -21,8 +21,8 @@
     [super viewDidLoad];
     
     // Show authorization controller if user is not logged in
-    UIViewController* LoginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
-    [self.navigationController presentViewController:LoginViewController animated:NO completion:nil];
+    UIViewController* loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
+    [self.navigationController presentViewController:loginViewController animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,6 +35,12 @@
 - (IBAction)mapLongPressed:(UILongPressGestureRecognizer *)sender
 {
     NSLog(@"Image has been long pressed!");
+}
+
+#pragma mark - map actions
+-(void)showCurrentRoute
+{
+    NSLog(@"Show route with name %@ on the map", self.currentRoute.name);
 }
 
 @end

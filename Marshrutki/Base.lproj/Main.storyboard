@@ -89,7 +89,7 @@
         <!--My Side Panel Controller-->
         <scene sceneID="FQn-pK-dHN">
             <objects>
-                <viewController id="DzQ-u6-tDD" customClass="MySidePanelController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MySidePanelController" id="DzQ-u6-tDD" customClass="MySidePanelController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="3Q9-bw-bg9"/>
                         <viewControllerLayoutGuide type="bottom" id="shR-HQ-6jf"/>

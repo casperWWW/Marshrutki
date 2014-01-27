@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Route.h"
 
 @interface MapViewController : UIViewController
+
+@property(strong, nonatomic)Route* currentRoute;
+
+-(void)showCurrentRoute;
 
 @end

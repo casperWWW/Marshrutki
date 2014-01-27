@@ -7,6 +7,8 @@
 //
 
 #import "RouteViewController.h"
+#import "MapViewController.h"
+#import "MySidePanelController.h"
 #import "Route.h"
 
 #import <AFNetworking.h>
@@ -84,6 +86,22 @@
     cell.textLabel.text = route.name;
     
     return cell;
+}
+
+#pragma mark - Table view data actions
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Get map view controller and route view controller
+    MySidePanelController* mySidePanelController = (MySidePanelController*) self.parentViewController;
+    MapViewController* mapViewController = (MapViewController*) mySidePanelController.centerPanel;
+    
+    // Set current route
+    mapViewController.currentRoute = (Route*) self.routes[indexPath.row];
+    
+    // Show map view controller
+    [mySidePanelController showCenterPanelAnimated:YES];
+    [mapViewController showCurrentRoute];
 }
 
 @end
