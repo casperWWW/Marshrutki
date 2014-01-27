@@ -7,7 +7,7 @@
         <!--Login View Controller - Authorization-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="vXZ-lx-hvc" customClass="LoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="398-3e-RPi"/>
                         <viewControllerLayoutGuide type="bottom" id="ViX-3D-ZvS"/>
@@ -74,7 +74,7 @@
         <!--Navigation Controller-->
         <scene sceneID="vTp-jI-Kam">
             <objects>
-                <navigationController definesPresentationContext="YES" id="6Jz-2e-rpV" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="MainViewController" definesPresentationContext="YES" id="6Jz-2e-rpV" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="qt6-iS-NFY">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

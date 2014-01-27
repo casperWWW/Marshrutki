@@ -28,7 +28,7 @@
 -(void)awakeFromNib
 {
     [self setLeftPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"RouteViewController"]];
-    [self setCenterPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController"]];
+    [self setCenterPanel:[self.storyboard instantiateViewControllerWithIdentifier:@"MainViewController"]];
 }
 
 @end

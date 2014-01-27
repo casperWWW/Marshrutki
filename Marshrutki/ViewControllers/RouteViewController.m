@@ -36,8 +36,8 @@
     [super viewDidLoad];
     
     // Initialize a preloader
-    MBProgressHUD* preloader = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    preloader.labelText = @"Loading";
+    MBProgressHUD* routesPreloader = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+    routesPreloader.labelText = @"Loading";
 
     // Get data by API call to http://marshrutki.com.ua/mu/routes.php
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
@@ -54,12 +54,12 @@
         [self.tableView reloadData];
         
         // Hide preloader
-        preloader.hidden = YES;
+        routesPreloader.hidden = YES;
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         NSLog(@"Error in the API request was ocurred");
         
         // Hide preloader
-        preloader.hidden = YES;
+        routesPreloader.hidden = YES;
     }];
 }
 
@@ -94,7 +94,8 @@
 {
     // Get map view controller and route view controller
     MySidePanelController* mySidePanelController = (MySidePanelController*) self.parentViewController;
-    MapViewController* mapViewController = (MapViewController*) mySidePanelController.centerPanel;
+//    UIViewController* mainViewController = mySidePanelController.centerPanel;
+    MapViewController* mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
     
     // Set current route
     mapViewController.currentRoute = (Route*) self.routes[indexPath.row];

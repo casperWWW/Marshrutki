@@ -21,8 +21,8 @@
     [super viewDidLoad];
     
     // Show authorization controller if user is not logged in
-    UIViewController* loginViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
-    [self.navigationController presentViewController:loginViewController animated:NO completion:nil];
+    UIViewController* authNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
+    [self.navigationController presentViewController:authNavigationController animated:NO completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
