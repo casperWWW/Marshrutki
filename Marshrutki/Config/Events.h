@@ -9,6 +9,7 @@
 #ifndef Marshrutki_Events_h
 #define Marshrutki_Events_h
 
-#define ROUTE_HASE_BEEN_CHANGED_EVENT @"RouteChanged"
+#define ROUTE_HAS_BEEN_CHANGED_EVENT @"RouteChanged"
+#define ROUTE_ADD_TO_FAVORITES_EVENT @"RouteAddToFavorites"
 
 #endif

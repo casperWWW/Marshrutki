@@ -28,14 +28,9 @@
     // Add event subscriber for "route changed" event
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(routeChangedNotification:)
-                                                 name:ROUTE_HASE_BEEN_CHANGED_EVENT
+                                                 name:ROUTE_HAS_BEEN_CHANGED_EVENT
                                                object:nil
      ];
-    
-    // Hide navigation bar button detail when current route is empty
-    if (self.currentRoute == nil) {
-//        self.navigationController.navigationItem.rightBarButtonItem.enabled = NO;
-    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -56,10 +51,21 @@
 -(void)showCurrentRoute
 {
     self.title = self.currentRoute.name;
-    self.navigationController.navigationItem.rightBarButtonItem.enabled = YES;
     NSLog(@"Show route with name %@ on the map", self.currentRoute.name);
 }
 
+- (IBAction)saveRouteToFavorites:(id)sender
+{
+    if (self.currentRoute != nil) {
+        // Send event to add current route to favorites
+        [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_ADD_TO_FAVORITES_EVENT
+                                                            object:self.currentRoute
+         ];
+    }
+}
+
+
+#pragma mark - Event handlers
 -(void)routeChangedNotification:(NSNotification *)notification
 {
     Route* chosenRoute = (Route*) [notification object];

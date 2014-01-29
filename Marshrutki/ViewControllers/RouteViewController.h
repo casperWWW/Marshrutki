@@ -10,4 +10,6 @@
 
 @interface RouteViewController : UITableViewController
 
+-(void)routeAddedToFavoritesNotification:(NSNotification*)notification;
+
 @end
