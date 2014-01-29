@@ -94,7 +94,8 @@
 {
     // Get map view controller and route view controller
     MySidePanelController* mySidePanelController = (MySidePanelController*) self.parentViewController;
-    MapViewController* mapViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"MapViewController"];
+    UINavigationController* mainNavigationController = (UINavigationController*) mySidePanelController.centerPanel;
+    MapViewController* mapViewController = (MapViewController*) mainNavigationController.topViewController;
     
     // Set current route
     mapViewController.currentRoute = (Route*) self.routes[indexPath.row];

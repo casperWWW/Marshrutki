@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 
@@ -21,8 +22,8 @@
     [super viewDidLoad];
     
     // Show authorization controller if user is not logged in
-    UIViewController* authNavigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
-    [self.navigationController presentViewController:authNavigationController animated:NO completion:nil];
+    AppDelegate* delegate = [[UIApplication sharedApplication] delegate];
+    [delegate presentLoginViewController];
 }
 
 - (void)didReceiveMemoryWarning

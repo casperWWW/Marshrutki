@@ -43,4 +43,11 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+#pragma mark - Helpers
+-(void)presentLoginViewController
+{
+    UIViewController* loginViewController = [self.window.rootViewController.storyboard instantiateViewControllerWithIdentifier:@"AuthNavigationController"];
+    [self.window.rootViewController presentViewController:loginViewController animated:NO completion:nil];
+}
+
 @end
