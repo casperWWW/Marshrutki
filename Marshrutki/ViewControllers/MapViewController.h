@@ -15,4 +15,6 @@
 
 -(void)showCurrentRoute;
 
+-(void)routeChangedNotification:(NSNotification*)notification;
+
 @end

@@ -39,7 +39,10 @@
     MBProgressHUD* routesPreloader = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     routesPreloader.labelText = @"Loading";
     
+    // Create weak link for self to avoid memory leak
     __weak typeof(self) wself = self;
+    
+    // Load routes, save them and display in table view
     MarshrutkiApi* marshrutkiApi = [MarshrutkiApi sharedClient];
     [marshrutkiApi getRoutes:^(NSArray* routes, NSError* error){
         wself.routes = routes;
@@ -79,17 +82,16 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    // Send message that route has been changed
+    [[NSNotificationCenter defaultCenter] postNotificationName:ROUTE_HASE_BEEN_CHANGED_EVENT
+                                                        object:self.routes[indexPath.row]
+     ];
+    
     // Get map view controller and route view controller
     MySidePanelController* mySidePanelController = (MySidePanelController*) self.parentViewController;
-    UINavigationController* mainNavigationController = (UINavigationController*) mySidePanelController.centerPanel;
-    MapViewController* mapViewController = (MapViewController*) mainNavigationController.topViewController;
-    
-    // Set current route
-    mapViewController.currentRoute = (Route*) self.routes[indexPath.row];
     
     // Show map view controller
     [mySidePanelController showCenterPanelAnimated:YES];
-    [mapViewController showCurrentRoute];
 }
 
 @end
