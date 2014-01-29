@@ -16,7 +16,7 @@
 
 @interface RouteViewController ()
 
-@property(strong, nonatomic) NSMutableArray* routes;
+@property(strong, nonatomic) NSArray* routes;
 
 @end
 
@@ -41,17 +41,20 @@
 
     // Get data by API call to http://marshrutki.com.ua/mu/routes.php
     AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+    __weak typeof(self) wself = self;
     [manager GET:@"http://marshrutki.com.ua/mu/routes.php" parameters:nil success:^(AFHTTPRequestOperation* operation, id responseObject) {
-        self.routes = [[NSMutableArray alloc] init];
+        wself.routes = [[NSMutableArray alloc] init];
         // Parse json data
         NSArray* rawRoutes = (NSArray*) responseObject;
+        NSMutableArray* routes = [[NSMutableArray alloc] init];
         for (NSDictionary* rawRoute in rawRoutes) {
             Route *route = [Route routeWithDictionary:rawRoute];
             
-            [self.routes addObject:route];
+            [routes addObject:route];
         }
+        wself.routes = routes;
         
-        [self.tableView reloadData];
+        [wself.tableView reloadData];
         
         // Hide preloader
         routesPreloader.hidden = YES;

@@ -35,12 +35,15 @@
 #pragma mark - Gesture recognations
 - (IBAction)mapLongPressed:(UILongPressGestureRecognizer *)sender
 {
-    NSLog(@"Image has been long pressed!");
+    if (sender.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"Image has been long pressed!");
+    }
 }
 
 #pragma mark - map actions
 -(void)showCurrentRoute
 {
+    self.title = self.currentRoute.name;
     NSLog(@"Show route with name %@ on the map", self.currentRoute.name);
 }
 
