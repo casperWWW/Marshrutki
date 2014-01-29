@@ -10,8 +10,8 @@
 #import "MapViewController.h"
 #import "MySidePanelController.h"
 #import "Route.h"
+#import "MarshrutkiApi.h"
 
-#import <AFNetworking.h>
 #import <MBProgressHUD.h>
 
 @interface RouteViewController ()
@@ -38,32 +38,16 @@
     // Initialize a preloader
     MBProgressHUD* routesPreloader = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
     routesPreloader.labelText = @"Loading";
-
-    // Get data by API call to http://marshrutki.com.ua/mu/routes.php
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
+    
     __weak typeof(self) wself = self;
-    [manager GET:@"http://marshrutki.com.ua/mu/routes.php" parameters:nil success:^(AFHTTPRequestOperation* operation, id responseObject) {
-        wself.routes = [[NSMutableArray alloc] init];
-        // Parse json data
-        NSArray* rawRoutes = (NSArray*) responseObject;
-        NSMutableArray* routes = [[NSMutableArray alloc] init];
-        for (NSDictionary* rawRoute in rawRoutes) {
-            Route *route = [Route routeWithDictionary:rawRoute];
-            
-            [routes addObject:route];
-        }
+    MarshrutkiApi* marshrutkiApi = [MarshrutkiApi sharedClient];
+    [marshrutkiApi getRoutes:^(NSArray* routes, NSError* error){
         wself.routes = routes;
-        
         [wself.tableView reloadData];
         
         // Hide preloader
         routesPreloader.hidden = YES;
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"Error in the API request was ocurred");
-        
-        // Hide preloader
-        routesPreloader.hidden = YES;
-    }];
+    } params:nil];
 }
 
 - (void)didReceiveMemoryWarning
