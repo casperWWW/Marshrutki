@@ -79,7 +79,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (section == 0) {
         return self.favoriteRoutes.count;
     }
     
@@ -92,7 +92,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     Route* route = nil;
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         route = (Route*) [self.favoriteRoutes objectAtIndex:indexPath.row];
     } else {
         route = (Route*) [self.routes objectAtIndex:indexPath.row];
@@ -105,7 +105,7 @@
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 1) {
+    if (section == 0) {
         if (self.favoriteRoutes.count > 0) {
             return @"Favorites";
         } else {
@@ -122,7 +122,7 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Route* route = nil;
-    if (indexPath.section == 1) {
+    if (indexPath.section == 0) {
         route = self.favoriteRoutes[indexPath.row];
     } else {
         route = self.routes[indexPath.row];
