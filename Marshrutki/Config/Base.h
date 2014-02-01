@@ -9,7 +9,7 @@
 #ifndef Marshrutki_Main_h
 #define Marshrutki_Main_h
 
-#define ROUTES_DOMEN @"http://marshrutki.com.ua"
-#define ROUTES_URL @"/mu/routes.php"
+#define MUAPI_BASE_URL @"http://marshrutki.com.ua"
+#define MUAPI_ROUTES_URI @"/mu/routes.php"
 
 #endif

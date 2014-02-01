@@ -7,7 +7,6 @@
 //
 
 #import "MarshrutkiApi.h"
-#import <AFNetworking.h>
 #import "Route.h"
 
 @implementation MarshrutkiApi
@@ -18,7 +17,9 @@
     static dispatch_once_t onceToken;
     
     dispatch_once(&onceToken, ^{
+        NSURL* baseURL = [[NSURL alloc] initWithString:MUAPI_BASE_URL];
         _sharedClient = [[MarshrutkiApi alloc] init];
+        _sharedClient.requestOperationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
     });
     
     return _sharedClient;
@@ -48,11 +49,9 @@
             block(nil, error);
         }
     };
-    
+     
     // Get data by API call to http://marshrutki.com.ua/mu/routes.php
-    AFHTTPRequestOperationManager* manager = [AFHTTPRequestOperationManager manager];
-    NSString* routesUrl = [NSString stringWithFormat:@"%@%@", ROUTES_DOMEN, ROUTES_URL];
-    [manager GET:routesUrl parameters:nil success:successBlock failure:failureBlock];
+    [self.requestOperationManager GET:MUAPI_ROUTES_URI parameters:nil success:successBlock failure:failureBlock];
 }
 
 @end

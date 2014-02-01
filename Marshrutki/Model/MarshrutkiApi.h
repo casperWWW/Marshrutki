@@ -7,8 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AFNetworking.h>
 
 @interface MarshrutkiApi : NSObject
+
+@property(strong, nonatomic) AFHTTPRequestOperationManager* requestOperationManager;
 
 +(MarshrutkiApi*)sharedClient;
 
