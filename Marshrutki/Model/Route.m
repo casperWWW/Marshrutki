@@ -15,6 +15,8 @@
     Route* route = [[Route alloc] init];
     
     route.name = routeDictionary[@"route_title"];
+    route.description = routeDictionary[@"route_description"];
+    route.price = routeDictionary[@"route_price"];
     
     return route;
 }
