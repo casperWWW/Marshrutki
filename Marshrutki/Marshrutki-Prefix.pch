@@ -17,3 +17,4 @@
 
 #import "Config/Base.h"
 #import "Config/Events.h"
+#import "Config/Entities.h"

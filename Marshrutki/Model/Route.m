@@ -7,16 +7,22 @@
 //
 
 #import "Route.h"
+#import "Repository.h"
+#import <CoreData/CoreData.h>
 
 @implementation Route
 
+@dynamic routeId, name, price, routeDescription, isFavorite;
+
 +(Route *)routeWithDictionary:(NSDictionary *)routeDictionary
 {
-    Route* route = [[Route alloc] init];
+    Repository *repository = [Repository sharedObject];
+    Route* route = [[Route alloc] initWithEntity:[NSEntityDescription entityForName:ROUTE_ENTITY inManagedObjectContext:repository.managedObjectContext] insertIntoManagedObjectContext:repository.managedObjectContext];
     
+    route.routeId = [NSNumber numberWithInt:[routeDictionary[@"route_id"] integerValue]];
     route.name = routeDictionary[@"route_title"];
-    route.description = routeDictionary[@"route_description"];
-    route.price = routeDictionary[@"route_price"];
+    route.routeDescription = routeDictionary[@"route_description"];
+    route.price = [routeDictionary[@"route_price"] floatValue];
     
     return route;
 }

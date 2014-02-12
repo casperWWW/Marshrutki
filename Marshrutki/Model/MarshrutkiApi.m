@@ -8,6 +8,7 @@
 
 #import "MarshrutkiApi.h"
 #import "Route.h"
+#import "Repository.h"
 
 @implementation MarshrutkiApi
 
@@ -37,6 +38,10 @@
             
             [routes addObject:route];
         }
+        // Save routes to core data
+        Repository* repository = [Repository sharedObject];
+        NSError *repositoryError = nil;
+        NSAssert1([repository.managedObjectContext save:&repositoryError], @"Can't save routes to storage. Error: %@", [repositoryError description]);
         
         if (block != nil) {
             block(routes, nil);

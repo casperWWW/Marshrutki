@@ -11,6 +11,8 @@
 #import "MySidePanelController.h"
 #import "Route.h"
 #import "MarshrutkiApi.h"
+#import "Repository.h"
+#import "RouteFacade.h"
 
 #import <MBProgressHUD.h>
 
@@ -21,6 +23,8 @@
 @end
 
 @implementation RouteViewController
+
+static NSTimeInterval const routesRefreshTimeInterval = ROUTES_REFRESH_INTERVAL_IN_SECONDS;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -41,22 +45,33 @@
     tableHeaderView.backgroundColor = MENU_BACKGROUND_COLOR;
     self.tableView.tableHeaderView = tableHeaderView;
     
-    // Initialize a preloader
-    MBProgressHUD* routesPreloader = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
-    routesPreloader.labelText = @"Loading";
-    
-    // Create weak link for self to avoid memory leak
-    __weak typeof(self) wself = self;
-    
-    // Load routes, save them and display in table view
-    MarshrutkiApi* marshrutkiApi = [MarshrutkiApi sharedClient];
-    [marshrutkiApi getRoutes:^(NSArray* routes, NSError* error){
-        wself.routes = routes;
-        [wself.tableView reloadData];
+    // Check if we should refresh routes by API-request
+    RouteFacade *routeFacade = [RouteFacade sharedObject];
+    NSArray *routes = [routeFacade fetchAll];
+    if ([routes count] == 0) {
+        // Initialize a preloader
+        MBProgressHUD* routesPreloader = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+        routesPreloader.labelText = @"Loading";
+
+        // Create weak link for self to avoid memory leak
+        __weak typeof(self) wself = self;
         
-        // Hide preloader
-        routesPreloader.hidden = YES;
-    } params:nil];
+        // Load routes, save them and display in table view
+        MarshrutkiApi* marshrutkiApi = [MarshrutkiApi sharedClient];
+        
+        // Clear routes in storage before
+        [routeFacade removeAllRoutes];
+        [marshrutkiApi getRoutes:^(NSArray* routes, NSError* error){
+            wself.routes = routes;
+            [wself.tableView reloadData];
+        
+            // Hide preloader
+            routesPreloader.hidden = YES;
+        } params:nil];
+    } else {
+        self.routes = routes;
+        [self.tableView reloadData];
+    }
     
     // Add event subscriber for "route changed" event
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -95,7 +110,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
     
     cell.textLabel.text = route.name;
-    cell.detailTextLabel.text = route.price;
+    cell.detailTextLabel.text = [NSString stringWithFormat:@"%.1f", route.price];
     
     return cell;
 }
@@ -136,8 +151,16 @@
             return 0;
         }
     }];
+    [self saveRoutesToRepository];
     
     [self.tableView reloadData];
+}
+
+-(void)saveRoutesToRepository
+{
+    Repository* repository = [Repository sharedObject];
+    NSError* error = nil;
+    [repository.managedObjectContext save:&error];
 }
 
 -(void)dealloc

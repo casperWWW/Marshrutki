@@ -7,12 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
 
-@interface Route : NSObject
+@interface Route : NSManagedObject
 
+@property (strong, nonatomic) NSNumber *routeId;
 @property (strong, nonatomic) NSString *name;
-@property (strong, nonatomic) NSString *price;
-@property (strong, nonatomic) NSString *description;
+@property (assign, nonatomic) float price;
+@property (strong, nonatomic) NSString *routeDescription;
 @property (assign, nonatomic) BOOL isFavorite;
 
 +(Route*)routeWithDictionary:(NSDictionary*)routeDictionary;

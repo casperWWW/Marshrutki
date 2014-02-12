@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		C9C7AB6884384EFC8A1A0D0C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9C2648B43D9E4DD9B6F93BF4 /* libPods.a */; };
 		E215102418906D400078FC9B /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E215102318906D400078FC9B /* MapViewController.m */; };
+		E2231A3A18AA9FCD006E80B1 /* Marshrutki.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E2231A3818AA9FCD006E80B1 /* Marshrutki.xcdatamodeld */; };
+		E2231A3E18AAA2F7006E80B1 /* Repository.m in Sources */ = {isa = PBXBuildFile; fileRef = E2231A3D18AAA2F7006E80B1 /* Repository.m */; };
+		E2231A4018AAA344006E80B1 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2231A3F18AAA343006E80B1 /* CoreData.framework */; };
 		E2477BCD188BED60008372C3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2477BCC188BED60008372C3 /* Foundation.framework */; };
 		E2477BCF188BED60008372C3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2477BCE188BED60008372C3 /* CoreGraphics.framework */; };
 		E2477BD1188BED60008372C3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2477BD0188BED60008372C3 /* UIKit.framework */; };
@@ -32,6 +35,7 @@
 		E2B1A1C118956E1C003F802F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2477BDE188BED60008372C3 /* Main.storyboard */; };
 		E2B1A1C41895B930003F802F /* MySidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B1A1C31895B930003F802F /* MySidePanelController.m */; };
 		E2B1A1CA1895C1DE003F802F /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B1A1C91895C1DE003F802F /* RouteViewController.m */; };
+		E2F80D1718AC10AC00CFA78C /* RouteFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F80D1618AC10AC00CFA78C /* RouteFacade.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		BE3DDAF54AE643AFA230BC81 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		E215102218906D400078FC9B /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MapViewController.h; path = ViewControllers/MapViewController.h; sourceTree = "<group>"; };
 		E215102318906D400078FC9B /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MapViewController.m; path = ViewControllers/MapViewController.m; sourceTree = "<group>"; };
+		E2231A3918AA9FCD006E80B1 /* Marshrutki.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Marshrutki.xcdatamodel; sourceTree = "<group>"; };
+		E2231A3C18AAA2F7006E80B1 /* Repository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Repository.h; path = Core/Repository.h; sourceTree = "<group>"; };
+		E2231A3D18AAA2F7006E80B1 /* Repository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Repository.m; path = Core/Repository.m; sourceTree = "<group>"; };
+		E2231A3F18AAA343006E80B1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		E2477BC9188BED60008372C3 /* Marshrutki.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Marshrutki.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2477BCC188BED60008372C3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		E2477BCE188BED60008372C3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -88,6 +96,9 @@
 		E2B1A1C31895B930003F802F /* MySidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySidePanelController.m; path = ViewControllers/MySidePanelController.m; sourceTree = "<group>"; };
 		E2B1A1C81895C1DE003F802F /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteViewController.h; path = ViewControllers/RouteViewController.h; sourceTree = "<group>"; };
 		E2B1A1C91895C1DE003F802F /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouteViewController.m; path = ViewControllers/RouteViewController.m; sourceTree = "<group>"; };
+		E2F80D1318ABF52500CFA78C /* Entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entities.h; path = Config/Entities.h; sourceTree = "<group>"; };
+		E2F80D1518AC10AC00CFA78C /* RouteFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteFacade.h; path = Facade/RouteFacade.h; sourceTree = "<group>"; };
+		E2F80D1618AC10AC00CFA78C /* RouteFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouteFacade.m; path = Facade/RouteFacade.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +106,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E2231A4018AAA344006E80B1 /* CoreData.framework in Frameworks */,
 				E27DB60A189D793A00C6EAA6 /* MapKit.framework in Frameworks */,
 				E2477BCF188BED60008372C3 /* CoreGraphics.framework in Frameworks */,
 				E2477BD1188BED60008372C3 /* UIKit.framework in Frameworks */,
@@ -133,6 +145,16 @@
 			name = ViewControllers;
 			sourceTree = "<group>";
 		};
+		E2231A3B18AAA252006E80B1 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E2F80D1418AC107F00CFA78C /* Facade */,
+				E2231A3C18AAA2F7006E80B1 /* Repository.h */,
+				E2231A3D18AAA2F7006E80B1 /* Repository.m */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 		E2477BC0188BED60008372C3 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +178,7 @@
 		E2477BCB188BED60008372C3 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E2231A3F18AAA343006E80B1 /* CoreData.framework */,
 				E27DB609189D793900C6EAA6 /* MapKit.framework */,
 				E2651EF41890843400B7E5EA /* libPods.a */,
 				E2477BCC188BED60008372C3 /* Foundation.framework */,
@@ -170,6 +193,7 @@
 		E2477BD2188BED60008372C3 /* Marshrutki */ = {
 			isa = PBXGroup;
 			children = (
+				E2231A3B18AAA252006E80B1 /* Core */,
 				E281F05D189985E800FA4B95 /* Config */,
 				E2151021189062870078FC9B /* ViewControllers */,
 				E2477C01188BEDD3008372C3 /* Model */,
@@ -224,6 +248,7 @@
 				E2477C0C188BF107008372C3 /* User.m */,
 				E281F05A189983DE00FA4B95 /* MarshrutkiApi.h */,
 				E281F05B189983DE00FA4B95 /* MarshrutkiApi.m */,
+				E2231A3818AA9FCD006E80B1 /* Marshrutki.xcdatamodeld */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -233,8 +258,18 @@
 			children = (
 				E281F05F1899865400FA4B95 /* Base.h */,
 				E281F0631899A20A00FA4B95 /* Events.h */,
+				E2F80D1318ABF52500CFA78C /* Entities.h */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		E2F80D1418AC107F00CFA78C /* Facade */ = {
+			isa = PBXGroup;
+			children = (
+				E2F80D1518AC10AC00CFA78C /* RouteFacade.h */,
+				E2F80D1618AC10AC00CFA78C /* RouteFacade.m */,
+			);
+			name = Facade;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -376,9 +411,12 @@
 				E2477BE3188BED60008372C3 /* LoginViewController.m in Sources */,
 				E215102418906D400078FC9B /* MapViewController.m in Sources */,
 				E2477C04188BEF19008372C3 /* Route.m in Sources */,
+				E2231A3E18AAA2F7006E80B1 /* Repository.m in Sources */,
 				E2477BDD188BED60008372C3 /* AppDelegate.m in Sources */,
+				E2F80D1718AC10AC00CFA78C /* RouteFacade.m in Sources */,
 				E2477BD9188BED60008372C3 /* main.m in Sources */,
 				E2477C07188BEFED008372C3 /* Vehicle.m in Sources */,
+				E2231A3A18AA9FCD006E80B1 /* Marshrutki.xcdatamodeld in Sources */,
 				E2B1A1C41895B930003F802F /* MySidePanelController.m in Sources */,
 				E281F06218999CDB00FA4B95 /* RouteDetailViewController.m in Sources */,
 			);
@@ -603,6 +641,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		E2231A3818AA9FCD006E80B1 /* Marshrutki.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				E2231A3918AA9FCD006E80B1 /* Marshrutki.xcdatamodel */,
+			);
+			currentVersion = E2231A3918AA9FCD006E80B1 /* Marshrutki.xcdatamodel */;
+			name = Marshrutki.xcdatamodeld;
+			path = Model/Marshrutki.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = E2477BC1188BED60008372C3 /* Project object */;
 }

@@ -11,5 +11,6 @@
 @interface RouteViewController : UITableViewController
 
 -(void)routeAddedToFavoritesNotification:(NSNotification*)notification;
+-(void)saveRoutesToRepository;
 
 @end
