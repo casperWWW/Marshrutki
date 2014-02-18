@@ -55,6 +55,15 @@
 
 #pragma mark - Route's methods
 
+-(Route *)fetchRouteById:(int)routeId error:(NSError *__autoreleasing *)error
+{
+    NSFetchRequest *request = [[NSFetchRequest alloc] initWithEntityName:ROUTE_ENTITY];
+    request.fetchLimit = 1;
+    request.predicate = [NSPredicate predicateWithFormat:@"routeId = %d", routeId];
+    
+    return [[self.repository.managedObjectContext executeFetchRequest:request error:error] lastObject];
+}
+
 -(NSArray *)fetchAll
 {
     NSFetchRequest *allRoutesRequest = [[NSFetchRequest alloc] init];
@@ -89,12 +98,6 @@
     }
     NSError *error = nil;
     [self.repository.managedObjectContext save:&error];
-}
-
--(void)updateRoutes:(NSArray*)routes
-{
-    // Get all routes from storage
-    
 }
 
 @end

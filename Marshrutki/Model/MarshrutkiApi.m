@@ -36,7 +36,9 @@
         for (NSDictionary* rawRoute in rawRoutes) {
             Route *route = [Route routeWithDictionary:rawRoute];
             
-            [routes addObject:route];
+            if (route) {
+                [routes addObject:route];
+            }
         }
         // Save routes to core data
         Repository* repository = [Repository sharedObject];

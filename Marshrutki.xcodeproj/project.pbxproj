@@ -35,6 +35,7 @@
 		E2B1A1C118956E1C003F802F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2477BDE188BED60008372C3 /* Main.storyboard */; };
 		E2B1A1C41895B930003F802F /* MySidePanelController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B1A1C31895B930003F802F /* MySidePanelController.m */; };
 		E2B1A1CA1895C1DE003F802F /* RouteViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2B1A1C91895C1DE003F802F /* RouteViewController.m */; };
+		E2ED8BEB18B1272A00FB6668 /* NSDictionary+JSON.m in Sources */ = {isa = PBXBuildFile; fileRef = E2ED8BEA18B1272A00FB6668 /* NSDictionary+JSON.m */; };
 		E2F80D1718AC10AC00CFA78C /* RouteFacade.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F80D1618AC10AC00CFA78C /* RouteFacade.m */; };
 /* End PBXBuildFile section */
 
@@ -96,6 +97,8 @@
 		E2B1A1C31895B930003F802F /* MySidePanelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MySidePanelController.m; path = ViewControllers/MySidePanelController.m; sourceTree = "<group>"; };
 		E2B1A1C81895C1DE003F802F /* RouteViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteViewController.h; path = ViewControllers/RouteViewController.h; sourceTree = "<group>"; };
 		E2B1A1C91895C1DE003F802F /* RouteViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouteViewController.m; path = ViewControllers/RouteViewController.m; sourceTree = "<group>"; };
+		E2ED8BE918B1272A00FB6668 /* NSDictionary+JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSDictionary+JSON.h"; path = "Core/Categories/NSDictionary+JSON.h"; sourceTree = "<group>"; };
+		E2ED8BEA18B1272A00FB6668 /* NSDictionary+JSON.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSDictionary+JSON.m"; path = "Core/Categories/NSDictionary+JSON.m"; sourceTree = "<group>"; };
 		E2F80D1318ABF52500CFA78C /* Entities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Entities.h; path = Config/Entities.h; sourceTree = "<group>"; };
 		E2F80D1518AC10AC00CFA78C /* RouteFacade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RouteFacade.h; path = Facade/RouteFacade.h; sourceTree = "<group>"; };
 		E2F80D1618AC10AC00CFA78C /* RouteFacade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RouteFacade.m; path = Facade/RouteFacade.m; sourceTree = "<group>"; };
@@ -148,6 +151,7 @@
 		E2231A3B18AAA252006E80B1 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				E2ED8BE818B1266400FB6668 /* Categories */,
 				E2F80D1418AC107F00CFA78C /* Facade */,
 				E2231A3C18AAA2F7006E80B1 /* Repository.h */,
 				E2231A3D18AAA2F7006E80B1 /* Repository.m */,
@@ -261,6 +265,15 @@
 				E2F80D1318ABF52500CFA78C /* Entities.h */,
 			);
 			name = Config;
+			sourceTree = "<group>";
+		};
+		E2ED8BE818B1266400FB6668 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				E2ED8BE918B1272A00FB6668 /* NSDictionary+JSON.h */,
+				E2ED8BEA18B1272A00FB6668 /* NSDictionary+JSON.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		E2F80D1418AC107F00CFA78C /* Facade */ = {
@@ -414,6 +427,7 @@
 				E2231A3E18AAA2F7006E80B1 /* Repository.m in Sources */,
 				E2477BDD188BED60008372C3 /* AppDelegate.m in Sources */,
 				E2F80D1718AC10AC00CFA78C /* RouteFacade.m in Sources */,
+				E2ED8BEB18B1272A00FB6668 /* NSDictionary+JSON.m in Sources */,
 				E2477BD9188BED60008372C3 /* main.m in Sources */,
 				E2477C07188BEFED008372C3 /* Vehicle.m in Sources */,
 				E2231A3A18AA9FCD006E80B1 /* Marshrutki.xcdatamodeld in Sources */,

@@ -47,31 +47,28 @@ static NSTimeInterval const routesRefreshTimeInterval = ROUTES_REFRESH_INTERVAL_
     
     // Check if we should refresh routes by API-request
     RouteFacade *routeFacade = [RouteFacade sharedObject];
-    NSArray *routes = [routeFacade fetchAll];
-    if ([routes count] == 0) {
+    self.routes = [routeFacade fetchAll];
+    [self.tableView reloadData];
         // Initialize a preloader
-        MBProgressHUD* routesPreloader = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
-        routesPreloader.labelText = @"Loading";
+    MBProgressHUD* routesPreloader = self.routes.count ? nil : [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
 
-        // Create weak link for self to avoid memory leak
-        __weak typeof(self) wself = self;
+    // Create weak link for self to avoid memory leak
+    __weak typeof(self) wself = self;
         
-        // Load routes, save them and display in table view
-        MarshrutkiApi* marshrutkiApi = [MarshrutkiApi sharedClient];
+    // Load routes, save them and display in table view
+    MarshrutkiApi* marshrutkiApi = [MarshrutkiApi sharedClient];
+    
+    [marshrutkiApi getRoutes:^(NSArray* routes, NSError* error){
+        // Sort routes
+        NSSortDescriptor *nameSort = [[NSSortDescriptor alloc] initWithKey:ROUTE_NAME_FIELD ascending:YES selector:@selector(localizedStandardCompare:)];
+        NSSortDescriptor *favoriteSort = [[NSSortDescriptor alloc] initWithKey:ROUTE_IS_FAVORITE_FIELD ascending:NO];
+
+        wself.routes = [routes sortedArrayUsingDescriptors:@[favoriteSort, nameSort]];
+        [wself.tableView reloadData];
         
-        // Clear routes in storage before
-        [routeFacade removeAllRoutes];
-        [marshrutkiApi getRoutes:^(NSArray* routes, NSError* error){
-            wself.routes = routes;
-            [wself.tableView reloadData];
-        
-            // Hide preloader
-            routesPreloader.hidden = YES;
-        } params:nil];
-    } else {
-        self.routes = routes;
-        [self.tableView reloadData];
-    }
+        // Hide preloader
+        [routesPreloader hide:YES];
+    } params:nil];
     
     // Add event subscriber for "route changed" event
     [[NSNotificationCenter defaultCenter] addObserver:self

@@ -10,6 +10,7 @@
 #define Marshrutki_Entities_h
 
 #define ROUTE_ENTITY @"Route"
+#define ROUTE_NAME_FIELD @"name"
 #define ROUTE_IS_FAVORITE_FIELD @"isFavorite"
 
 #endif

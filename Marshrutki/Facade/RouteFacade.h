@@ -7,14 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Route.h"
 
 @interface RouteFacade : NSObject
 
 +(RouteFacade*)sharedObject;
 
+-(Route*)fetchRouteById:(int)routeId error:(NSError **)error;
 -(NSArray*)fetchAll;
 -(NSArray*)fetchAllIds;
 -(void)removeAllRoutes;
--(void)updateRoutes:(NSArray*)routes;
 
 @end
