@@ -24,8 +24,6 @@
 
 @implementation RouteViewController
 
-static NSTimeInterval const routesRefreshTimeInterval = ROUTES_REFRESH_INTERVAL_IN_SECONDS;
-
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -59,13 +57,14 @@ static NSTimeInterval const routesRefreshTimeInterval = ROUTES_REFRESH_INTERVAL_
     MarshrutkiApi* marshrutkiApi = [MarshrutkiApi sharedClient];
     
     [marshrutkiApi getRoutes:^(NSArray* routes, NSError* error){
-        // Sort routes
-        NSSortDescriptor *nameSort = [[NSSortDescriptor alloc] initWithKey:ROUTE_NAME_FIELD ascending:YES selector:@selector(localizedStandardCompare:)];
-        NSSortDescriptor *favoriteSort = [[NSSortDescriptor alloc] initWithKey:ROUTE_IS_FAVORITE_FIELD ascending:NO];
+        if (error == nil) {
+            // Sort routes
+            NSSortDescriptor *nameSort = [[NSSortDescriptor alloc] initWithKey:ROUTE_NAME_FIELD ascending:YES selector:@selector(localizedStandardCompare:)];
+            NSSortDescriptor *favoriteSort = [[NSSortDescriptor alloc] initWithKey:ROUTE_IS_FAVORITE_FIELD ascending:NO];
 
-        wself.routes = [routes sortedArrayUsingDescriptors:@[favoriteSort, nameSort]];
-        [wself.tableView reloadData];
-        
+            wself.routes = [routes sortedArrayUsingDescriptors:@[favoriteSort, nameSort]];
+            [wself.tableView reloadData];
+        }
         // Hide preloader
         [routesPreloader hide:YES];
     } params:nil];
